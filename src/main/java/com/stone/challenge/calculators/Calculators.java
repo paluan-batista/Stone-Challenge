@@ -1,4 +1,4 @@
-package com.stone.challenge.utils;
+package com.stone.challenge.calculators;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 import com.stone.challenge.model.Person;
 
 @Component
-public class Utils {
+public class Calculators {
 
 	public Integer getNumberOfItems(Person person) {
 		return person.getItems().size();
