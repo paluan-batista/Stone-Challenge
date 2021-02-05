@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,8 +22,13 @@ import io.swagger.annotations.ApiOperation;
 @RequestMapping("/api/")
 public class ShoppingListController {
 
-	@Autowired
+	
 	private ShoppingListImpl shoppingListImpl;
+	
+
+	public ShoppingListController(ShoppingListImpl shoppingListImpl) {
+		this.shoppingListImpl = shoppingListImpl;
+	}
 
 	@ApiOperation(value = "Return all data from dataset.")
 	@GetMapping(value = "/all")

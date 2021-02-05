@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.google.gson.Gson;
@@ -18,14 +17,19 @@ import com.stone.challenge.model.Person;
 public class ShoppingListService {
 
 	private static final String PATH_FILE = "src/main/resources/ShoppingList.json";
+	
+	private static final Gson GSON = new Gson();
 
-	@Autowired
+	
 	private Calculators calculators;
 
-	Gson gson = new Gson();
+	public ShoppingListService(Calculators calculators) {
+		this.calculators = calculators;
+	}
+	
 
 	public List<Person> findAll() throws IOException {
-		List<Person> persons = gson.fromJson(calculators.readFile(PATH_FILE), new TypeToken<List<Person>>() {
+		List<Person> persons = GSON.fromJson(calculators.readFile(PATH_FILE), new TypeToken<List<Person>>() {
 		}.getType());
 
 		if (persons.isEmpty()) {

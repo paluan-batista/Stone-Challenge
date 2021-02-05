@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.stone.challenge.model.Person;
@@ -13,8 +12,12 @@ import com.stone.challenge.service.ShoppingListService;
 @Component
 public class ShoppingListImpl implements ShoppingListInterface {
 
-	@Autowired
 	private ShoppingListService service;
+
+	public ShoppingListImpl(ShoppingListService service) {
+		this.service = service;
+
+	}
 
 	@Override
 	public List<Person> findAll() throws IOException {
@@ -34,7 +37,7 @@ public class ShoppingListImpl implements ShoppingListInterface {
 
 	@Override
 	public Map<String, String> getBalancePayablePerPerson(String email) throws IOException {
-		
+
 		return service.getBalancePayablePerPerson(email);
 	}
 

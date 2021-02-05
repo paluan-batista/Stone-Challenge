@@ -14,34 +14,42 @@ import com.stone.challenge.model.Person;
 @Component
 public class Calculators {
 
+	private static final String PRECO = "Preco";
+	private static final String QUANTIDADE = "Quantidade";
+
 	public Integer getNumberOfItems(Person person) {
+
 		return person.getItems().size();
 
 	}
 
 	public Integer getTotalAmountPayable(Person person) {
 
-		return Math.multiplyExact(getTotalQuantity(person), getSumPrices(person));
+		return Math.multiplyExact(getSum(person, QUANTIDADE), getSum(person, PRECO));
 	}
 
-	private Integer getSumPrices(Person person) {
-		List<Integer> prices = new ArrayList<Integer>(getNumberOfItems(person));
+	private Integer getSum(Person person, String type) {
 
-		person.getItems().forEach(k -> prices.add(k.getPreco()));
+		Integer sum = getPriceOrQuantity(person, type).stream().mapToInt(Integer::intValue).sum();
 
-		Integer sumPrices = prices.stream().mapToInt(Integer::intValue).sum();
-
-		return sumPrices;
+		return sum;
 	}
 
-	private Integer getTotalQuantity(Person person) {
-		List<Integer> totalQuantity = new ArrayList<Integer>(getNumberOfItems(person));
+	public List<Integer> getPriceOrQuantity(Person person, String type) {
 
-		person.getItems().forEach(k -> totalQuantity.add(k.getQuantidade()));
+		List<Integer> pricesOrQuantity = new ArrayList<Integer>(getNumberOfItems(person));
+		switch (type) {
+		case PRECO:
+			person.getItems().forEach(k -> pricesOrQuantity.add(k.getPreco()));
+			break;
 
-		Integer sumTotalQuantity = totalQuantity.stream().mapToInt(Integer::intValue).sum();
+		case QUANTIDADE:
+			person.getItems().forEach(k -> pricesOrQuantity.add(k.getQuantidade()));
+			break;
 
-		return sumTotalQuantity;
+		}
+
+		return pricesOrQuantity;
 
 	}
 
