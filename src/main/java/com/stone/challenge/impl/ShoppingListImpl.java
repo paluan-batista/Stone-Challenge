@@ -4,8 +4,6 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
-import javax.management.AttributeNotFoundException;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -25,17 +23,17 @@ public class ShoppingListImpl implements ShoppingListInterface {
 	}
 
 	@Override
-	public Person findById(Integer id) throws IOException, AttributeNotFoundException {
+	public Person findById(Integer id) throws IOException {
 		return service.findById(id);
 	}
 
 	@Override
-	public Person findByEmail(String email) throws IOException, AttributeNotFoundException {
+	public Person findByEmail(String email) throws IOException {
 		return service.findByEmail(email);
 	}
 
 	@Override
-	public Map<String, String> getBalancePayablePerPerson(String email) throws IOException, AttributeNotFoundException {
+	public Map<String, String> getBalancePayablePerPerson(String email) throws IOException {
 		
 		return service.getBalancePayablePerPerson(email);
 	}

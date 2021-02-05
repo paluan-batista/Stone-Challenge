@@ -4,8 +4,6 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
-import javax.management.AttributeNotFoundException;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,20 +34,20 @@ public class ShoppingListController {
 
 	@ApiOperation(value = "Return one Person by id.")
 	@GetMapping(value = "/id/{id}")
-	public Person findById(@PathVariable(name = "id") Integer id) throws IOException, AttributeNotFoundException {
+	public Person findById(@PathVariable(name = "id") Integer id) throws IOException {
 		return shoppingListImpl.findById(id);
 	}
 
 	@ApiOperation(value = "Return one Person by email.")
 	@GetMapping(value = "/email/{email}")
-	public Person findByName(@PathVariable(name = "email") String email) throws IOException, AttributeNotFoundException {
+	public Person findByName(@PathVariable(name = "email") String email) throws IOException {
 		return shoppingListImpl.findByEmail(email);
 	}
 
 	@ApiOperation(value = "Returns the person and the amount they must pay for their shopping list.")
 	@GetMapping(value = "/amount/payable/email/{email}")
 	public Map<String, String> getBalancePayablePerPerson(@PathVariable(name = "email") String email)
-			throws IOException, AttributeNotFoundException {
+			throws IOException {
 		return shoppingListImpl.getBalancePayablePerPerson(email);
 	}
 

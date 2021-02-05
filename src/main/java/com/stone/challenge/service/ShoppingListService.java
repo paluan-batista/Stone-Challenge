@@ -6,8 +6,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
 
-import javax.management.AttributeNotFoundException;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,29 +34,29 @@ public class ShoppingListService {
 		return persons;
 	}
 
-	public Person findById(Integer id) throws IOException, AttributeNotFoundException {
+	public Person findById(Integer id) throws IOException {
 
 		List<Person> persons = findAll();
 
 		Person findPersonById = persons.stream().filter(x -> id.equals(x.getId())).findAny()
-				.orElseThrow(() -> new AttributeNotFoundException("Couldn't load index set with ID <" + id + ">"));
+				.orElseThrow(NoSuchElementException::new);
 
 		return findPersonById;
 
 	}
 
-	public Person findByEmail(String email) throws IOException, AttributeNotFoundException {
+	public Person findByEmail(String email) throws IOException {
 
 		List<Person> persons = findAll();
 
-		Person findPersonByEmail = persons.stream().filter(x -> email.equals(x.getEmail())).findAny().orElseThrow(
-				() -> new AttributeNotFoundException("Couldn't load index set with Email <" + email + ">"));
+		Person findPersonByEmail = persons.stream().filter(x -> email.equals(x.getEmail())).findAny()
+				.orElseThrow(NoSuchElementException::new);
 
 		return findPersonByEmail;
 
 	}
 
-	public Map<String, String> getBalancePayablePerPerson(String email) throws IOException, AttributeNotFoundException {
+	public Map<String, String> getBalancePayablePerPerson(String email) throws IOException {
 
 		Person person = findByEmail(email);
 
