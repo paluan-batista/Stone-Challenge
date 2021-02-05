@@ -1,4 +1,4 @@
-package com.test.stone.challenge;
+package com.stone.challenge;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,6 +8,7 @@ public class StoneChallengeApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(StoneChallengeApplication.class, args);
+
 	}
 
 }

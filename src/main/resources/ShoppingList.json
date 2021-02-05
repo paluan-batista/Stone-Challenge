@@ -1,0 +1,110 @@
+[
+  {
+    "email": "joao_canabrava@butecus.com",
+    "id": 1,
+    "Items": [
+      {
+        "id": 3306,
+        "tipoUnidade": "saca",
+        "unidadeDeMedida": "kg",
+        "nome": "arroz",
+        "peso": 5,
+        "preco": 1500,
+        "quantidade": 2
+      },
+      {
+        "id": 3307,
+        "tipoUnidade": "caixa",
+        "unidadeDeMedida": "kg",
+        "nome": "sabão em pó",
+        "peso": 2,
+        "preco": 800,
+        "quantidade": 2
+      },
+      {
+        "id": 3308,
+        "tipoUnidade": "caixa",
+        "unidadeDeMedida": "kg",
+        "nome": "Stella Artois",
+        "peso": 5,
+        "preco": 40000,
+        "quantidade": 10
+      }
+    ]
+  },
+  {
+    "email": "lenildson_quebraosso@muaythai.com",
+    "id": 2,
+    "Items": [
+      {
+        "id": 4401,
+        "tipoUnidade": "saca",
+        "unidadeDeMedida": "kg",
+        "nome": "arroz",
+        "peso": 5,
+        "preco": 1500,
+        "quantidade": 3
+      },
+      {
+        "id": 4402,
+        "tipoUnidade": "caixa",
+        "unidadeDeMedida": "kg",
+        "nome": "Cerveja Antartica",
+        "peso": 20,
+        "preco": 1000,
+        "quantidade": 2
+      },
+      {
+        "id": 4403,
+        "tipoUnidade": "caixa",
+        "unidadeDeMedida": "kg",
+        "nome": "Cebola",
+        "peso": 2,
+        "preco": 550,
+        "quantidade": 1
+      }
+    ]
+  },
+  {
+    "email": "falcao_campeao_dos_campeoes@hollywood.com",
+    "id": 3,
+    "Items": [
+      {
+        "id": 5501,
+        "tipoUnidade": "saca",
+        "unidadeDeMedida": "kg",
+        "nome": "batata doce",
+        "peso": 5,
+        "preco": 8500,
+        "quantidade": 10
+      },
+      {
+        "id": 5502,
+        "tipoUnidade": "caixa",
+        "unidadeDeMedida": "kg",
+        "nome": "whey Protein",
+        "peso": 2,
+        "preco": 5800,
+        "quantidade": 1
+      },
+      {
+        "id": 5503,
+        "tipoUnidade": "saca",
+        "unidadeDeMedida": "kg",
+        "nome": "Frango",
+        "peso": 4,
+        "preco": 550,
+        "quantidade": 6
+      },
+      {
+        "id": 5504,
+        "tipoUnidade": "par",
+        "unidadeDeMedida": "kg",
+        "nome": "Luva de Boxe",
+        "peso": 1,
+        "preco": 7800,
+        "quantidade": 2
+      }
+    ]
+  }
+]
